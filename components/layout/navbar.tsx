@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { LayoutDashboard } from "lucide-react";
 
 export default function NavBar() {
@@ -30,11 +30,18 @@ export default function NavBar() {
             <p>Precedent</p>
           </Link>
           <SignedOut>
-            <SignInButton mode="modal">
-              <button className="rounded-full border border-black bg-black px-4 py-1.5 text-sm text-white transition-colors hover:bg-white hover:text-black">
-                Sign In
-              </button>
-            </SignInButton>
+            <div className="flex items-center gap-3">
+              <SignInButton mode="modal">
+                <button className="rounded-full border border-black bg-black px-4 py-1.5 text-sm text-white transition-colors hover:bg-white hover:text-black">
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="rounded-full border border-black bg-white px-4 py-1.5 text-sm text-black transition-colors hover:bg-black hover:text-white">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </div>
           </SignedOut>
           <SignedIn>
             <UserButton>
